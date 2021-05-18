@@ -1,10 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { QueryClient, QueryClientProvider } from "react-query";
 import Simpsons from "./simpsons";
 import WithQCProvider from "./withQCProvider";
-
-const queryClient = new QueryClient();
 
 const App = () => {
   return (
