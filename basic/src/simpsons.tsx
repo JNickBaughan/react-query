@@ -14,10 +14,12 @@ const Simpson = ({ name }: { name: string }) => {
 };
 
 const Simpsons = () => {
-  //const queryClient = useQueryClient();
-  const { status, data, error, isFetching } = useSimpsons();
-  if (isFetching || status === "loading") {
+  const { data, error, isFetching, isLoading } = useSimpsons();
+  if (isFetching || isLoading) {
     return "loading...";
+  }
+  if (error) {
+    return "Something went wrong getting the data";
   }
   return (
     <ul>
