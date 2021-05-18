@@ -16,7 +16,7 @@ server.get("/", (req: Request, res: Response) => {
     <!DOCTYPE html>
     <html>
       <body>
-        <div id="root" >hello world!!</div>
+        <div id="root" ></div>
         <script src="bundle.js"></script>
       </body>
     </html>
