@@ -36,10 +36,44 @@ const simpsons = [
   {
     name: "Maggie Simpson",
   },
+  {
+    name: "Lisa Simpson",
+  },
+  {
+    name: "Abe Simpson",
+  },
+  {
+    name: "Apu Nahasapeemapetilon",
+  },
+  {
+    name: "Chief Wiggum",
+  },
+  {
+    name: "Krusty",
+  },
+  {
+    name: "Ned Flanders",
+  },
+  {
+    name: "Santa's Little Helper ",
+  },
+  {
+    name: "Principal Seymour Skinner",
+  },
 ];
 
-server.get("/simpsons", (req: Request, res: Response) => {
-  res.send(simpsons);
+server.get("/simpsons/:name?", (req: Request, res: Response) => {
+  if (req.params.name) {
+    res.send(
+      simpsons
+        .map((character) => ({ name: character.name.toLowerCase() }))
+        .filter((character) =>
+          character.name.includes(req.params.name.toLowerCase())
+        )
+    );
+  } else {
+    res.send(simpsons);
+  }
 });
 
 server.listen(PORT, function () {

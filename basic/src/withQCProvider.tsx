@@ -6,7 +6,7 @@ const queryClient = new QueryClient();
 const WithQCProvider = ({
   children,
 }: {
-  children: JSX.ElementChildrenAttribute;
+  children: JSX.Element | JSX.Element[];
 }) => {
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>

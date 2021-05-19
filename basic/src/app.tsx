@@ -1,13 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Simpsons from "./simpsons";
+import Search from "./search";
 import WithQCProvider from "./withQCProvider";
 
 const App = () => {
+  const [name, updateName] = React.useState("");
+
   return (
     <WithQCProvider>
-      {/* @ts-ignore */}
-      <Simpsons />
+      <Search name={name} onType={updateName} />
+      <br />
+      <br />
+      <Simpsons name={name} />
     </WithQCProvider>
   );
 };
